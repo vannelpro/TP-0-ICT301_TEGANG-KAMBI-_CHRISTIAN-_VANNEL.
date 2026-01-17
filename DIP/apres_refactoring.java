@@ -1,23 +1,21 @@
-public class UserService {
-    public void createUser(String name, String email) {
-        System.out.println("User created: " + name);
+public interface Payment {
+    void pay();
+}
+
+public class MTNPayment implements Payment {
+    public void pay() {
+        System.out.println("Paying with MTN");
     }
 }
 
-public class EmailValidator {
-    public void validate(String email) {
-        System.out.println("Validating email...");
+public class OrangePayment implements Payment {
+    public void pay() {
+        System.out.println("Paying with Orange Money");
     }
 }
 
-public class EmailService {
-    public void sendWelcomeEmail(String email) {
-        System.out.println("Sending welcome email...");
-    }
-}
-
-public class UserRepository {
-    public void save(String name, String email) {
-        System.out.println("Saving user to database...");
+public class OrderService {
+    public void processOrder(Payment payment) {
+        payment.pay();
     }
 }
