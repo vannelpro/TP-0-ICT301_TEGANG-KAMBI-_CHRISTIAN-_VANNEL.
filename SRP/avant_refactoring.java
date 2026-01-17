@@ -1,35 +1,21 @@
-package srp;
+public class UserManager {
 
-public class Book {
-    private String title;
-    private String author;
-    private String content;
-
-    public Book(String title, String author, String content) {
-        this.title = title;
-        this.author = author;
-        this.content = content;
+    public void createUser(String name, String email) {
+        System.out.println("User created: " + name);
+        validateEmail(email);
+        saveToDatabase(name, email);
+        sendEmail(email);
     }
 
-    // Responsabilité 1 : Gérer les données du livre
-    public String getTitle() { return title; }
-    public String getAuthor() { return author; }
-    public String getContent() { return content; }
-
-    // Responsabilité 2 : Afficher le livre (présentation)
-    public void printToScreen() {
-        System.out.println("Titre: " + title);
-        System.out.println("Auteur: " + author);
-        System.out.println("Contenu: " + content);
+    public void validateEmail(String email) {
+        System.out.println("Validating email...");
     }
 
-    // Responsabilité 3 : Sauvegarder le livre (persistance)
-    public void saveToDatabase() {
-        System.out.println("Sauvegarde du livre '" + title + "' en base de données...");
+    public void saveToDatabase(String name, String email) {
+        System.out.println("Saving user to database...");
     }
 
-    // Responsabilité 4 : (logique métier)
-    public void emprunter(String lecteur) {
-        System.out.println("Emprunt du livre '" + title + "' par " + lecteur);
+    public void sendEmail(String email) {
+        System.out.println("Sending welcome email...");
     }
 }
