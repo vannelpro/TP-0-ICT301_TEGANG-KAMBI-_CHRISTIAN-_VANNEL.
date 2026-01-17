@@ -1,19 +1,22 @@
-package dip;
+public class UserManager {
 
-class MySQLDatabase {
-    public void save(String data) {
-        System.out.println("Saving to MySQL: " + data);
+    public void createUser(String name, String email) {
+        System.out.println("User created: " + name);
+        validateEmail(email);
+        saveToDatabase(name, email);
+        sendEmail(email);
+    }
+
+    public void validateEmail(String email) {
+        System.out.println("Validating email...");
+    }
+
+    public void saveToDatabase(String name, String email) {
+        System.out.println("Saving user to database...");
+    }
+
+    public void sendEmail(String email) {
+        System.out.println("Sending welcome email...");
     }
 }
 
-public class OrderProcessor {
-    private MySQLDatabase database;
-
-    public OrderProcessor() {
-        this.database = new MySQLDatabase();
-    }
-
-    public void processOrder(String order) {
-        database.save(order);
-    }
-}
