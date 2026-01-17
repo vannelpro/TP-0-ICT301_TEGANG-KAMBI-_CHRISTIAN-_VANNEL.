@@ -1,62 +1,23 @@
-package srp;
-
-// Gère les données du livre
-public class BookSRP {
-    private String title;
-    private String author;
-    private String content;
-
-    public BookSRP(String title, String author, String content) {
-        this.title = title;
-        this.author = author;
-        this.content = content;
-    }
-
-    // Méthodes pour accéder aux données (getters)
-    public String getTitle() { return title; }
-    public String getAuthor() { return author; }
-    public String getContent() { return content; }
-}
-
-// Classe BookPrinter : présentation
-class BookPrinter {
-    // Méthode pour afficher le livre à l'écran
-    public void printToScreen(BookSRP book) {
-        System.out.println("===Print to Screen=== ");
-        System.out.println("Titre: " + book.getTitle());
-        System.out.println("Auteur: " + book.getAuthor());
-        System.out.println("Contenu: " + book.getContent());
-    }
-
-    // On peut ajouter d'autres méthodes d'affichage sans toucher à BookSRP
-    public void printToHTML(BookSRP book) {
-        System.out.println("\n===Print to HTML=== ");
-        System.out.println("<h1>" + book.getTitle() + "</h1>");
-        System.out.println("<h2>Par " + book.getAuthor() + "</h2>");
-        System.out.println("<p>" + book.getContent() + "</p>");
+public class UserService {
+    public void createUser(String name, String email) {
+        System.out.println("User created: " + name);
     }
 }
 
-// Classe BookSaver : persistance
-class BookSaver {
-    public void saveToDatabase(BookSRP book) {
-        System.out.println("\nSauvegarde de '" + book.getTitle() + "' en base de données...");
-    }
-
-    //On peut ajouter d'autres façons de sauvegarder
-    public void saveToFile(BookSRP book, String filename) {
-        System.out.println("\nSauvegarde de '" + book.getTitle() + "' dans " + filename);
+public class EmailValidator {
+    public void validate(String email) {
+        System.out.println("Validating email...");
     }
 }
 
-// Classe BookBusinessLogic : Logique métier
-class BookBusinessLogic {
-    public void emprunter(BookSRP book, String lecteur) {
-        System.out.println("\nEmprunt du livre '" + book.getTitle() + "' par " + lecteur);
+public class EmailService {
+    public void sendWelcomeEmail(String email) {
+        System.out.println("Sending welcome email...");
     }
+}
 
-    //On peut ajouter d'autres logiques
-    public void autreService(BookSRP book) {
-        System.out.println("\nAutre logique métier sur le livre '" + book.getTitle());
+public class UserRepository {
+    public void save(String name, String email) {
+        System.out.println("Saving user to database...");
     }
 }
