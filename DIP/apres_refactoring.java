@@ -1,31 +1,23 @@
-package dip;
-public class OrderProcessor2 {
-    private Database database;
-
-    public OrderProcessor2(Database database) {
-        this.database = database;
-    }
-
-    public void processOrder(String order) {
-        database.save(order);
+public class UserService {
+    public void createUser(String name, String email) {
+        System.out.println("User created: " + name);
     }
 }
 
-
-interface Database {
-    public void save(String data);
-}
-
-class MySQLDatabase implements Database {
-    @Override
-    public void save(String data) {
-        System.out.println("Saving to MySQL: " + data);
+public class EmailValidator {
+    public void validate(String email) {
+        System.out.println("Validating email...");
     }
 }
 
-class MongoDBDatabase implements Database {
-    @Override
-    public void save(String data) {
-        System.out.println("Saving to MongoDB: " + data);
+public class EmailService {
+    public void sendWelcomeEmail(String email) {
+        System.out.println("Sending welcome email...");
+    }
+}
+
+public class UserRepository {
+    public void save(String name, String email) {
+        System.out.println("Saving user to database...");
     }
 }
